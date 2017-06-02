@@ -1,0 +1,42 @@
+{% extends "contactlist/base.html" %}
+{% load static %}
+
+{% block title %}
+  Contact-list
+{% endblock %}
+
+{% block content %}
+	<div id="contactlist">
+		<div class="container">
+			<form>
+			  <div class="input-group">
+			    <input type="text" class="form-control" placeholder="Search">
+			    <div class="input-group-btn">
+			      <button class="btn btn-default" type="submit">
+			        <i class="fa fa-search"></i>
+			      </button>
+			    </div>
+			  </div>
+			</form>
+
+			<div class="all">
+			  <table class="table table-hover text-center">
+			    <thead>
+			      <tr>
+			        <th class="text-center">Name</th>
+			        <th class="text-center">Contact Number</th>    
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {% for contact in contacts %}
+			      <tr>
+			        <td>{{ contact.name }}</td>
+			        <td>{{ contact.contact_number }}</td> 
+			      </tr>
+			      {% endfor %}
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
