@@ -25,7 +25,7 @@ class ContactViewSet(viewsets.ModelViewSet):
     @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
     # This view give permission to admin for creating new contactlist
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        serializer.save(admin=self.request.user)
         
 
 # api-root view which show by visiting domain/api link

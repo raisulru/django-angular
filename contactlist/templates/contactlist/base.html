@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static "font-awesome-4.6.1/css/font-awesome.min.css" %}">
     <!-- link for style main css -->
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    
+   
   </head>
   <body>
   <!-- bootstrap navbar -->
@@ -29,8 +31,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/api">Api</a></li>
-          <li><a href="/admin">Admin</a></li>
+          <li><a href="/api" target="_blank">REST Api</a></li>
+          <li><a href="/admin" target="_blank">Admin</a></li>
         </ul>
       </div>
     </div>
@@ -39,11 +41,17 @@
   {% block content %}
   {% endblock %}
 
-  <!-- jquery link -->
+   <!-- jquery link -->
   <script src="{% static "js/jquery-2.2.3.min.js" %}"></script>
+  <script src="{% static "js/angular.min.js" %}"></script>
+  <script src="{% static "js/angular-ui-router.min.js" %}"></script>
+  <script src="{% static "js/lodash.js" %}"></script>
+  <script src="{% static "js/restangular.min.js" %}"></script>
+  
   <!-- link for bootstrap js -->
   <script src="{% static "js/bootstrap.min.js" %}"></script>
   <!-- link for main.js -->
-  <script src="{% static "js/main.js" %}"></script>
+  <script src="{% static "js/app.js" %}"></script>
+  
   </body>
 </html>

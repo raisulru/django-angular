@@ -105,7 +105,7 @@ USE_TZ = True
 
 # pagination for contactlist views
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 3
+    'PAGE_SIZE': 100
 }
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
