@@ -17,9 +17,9 @@ contact_detail = ContactViewSet.as_view({
     'delete': 'destroy'
 })
 
-# API endpoints
+# API endpoints and template url
 urlpatterns = format_suffix_patterns([
-	url(r'^$', views.ContactView, name='ContactView'),
+    url(r'^$', views.ContactView, name='ContactView'),
     url(r'^$', api_root),
     url(r'^contactlist/$', contact_list, name='contact-list'),
     url(r'^contactlist/(?P<pk>[0-9]+)/$', contact_detail, name='contact-detail'),

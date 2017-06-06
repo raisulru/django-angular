@@ -6,43 +6,46 @@
 {% endblock %}
 
 {% block content %}
-	<div id="contactlist" ng-app="angApp">
-		<div class="container" ng-controller="angCtrl">
-			<div class="jumbotron">
-				{% verbatim %}
-				<h1 class="text-center">Search contact for {{myModel}}</h1>
-				{% endverbatim %}
-				<form>
-				  <div class="input-group">
-				    <input type="text" class="form-control" ng-model="myModel" placeholder="Search Contact">
-				    <div class="input-group-btn">
-				      <button class="btn btn-default" type="submit">
-				        <i class="fa fa-search"></i>
-				      </button>
-				    </div>
-				  </div>
-				</form>
-			</div>
-			<div class="all">
-			  <table class="table table-hover text-center">
-			    <thead>
-			      <tr>
-			        <th class="text-center">Id</th>
-			        <th class="text-center">Name</th>
-			        <th class="text-center">Contact Number</th>      
-			      </tr>
-			    </thead>
-			    <tbody>
-			      {% verbatim %}
-			      <tr ng-repeat="contact in results | filter:myModel | orderBy: 'name'">
-			        <td>{{contact.id}}</td>
-			        <td>{{contact.name}}</td>
-			        <td>{{contact.contact_number}}</td> 
-			      </tr>
-			      {% endverbatim %}
-			    </tbody>
-			  </table>
-			</div>
+<div id="contactlist" ng-app="angApp">
+	<div class="container" ng-controller="angCtrl">
+		<div class="jumbotron">
+			{% verbatim %}
+			<h1 class="text-center">Search contact for: {{data.message}}</h1>
+			{% endverbatim %}
+			<form>
+			  <div class="input-group">
+			    <input limit-to="4" type="text" class="form-control" ng-model="data.message" placeholder="Search Contact">
+			    <div class="input-group-btn">
+			      <button class="btn btn-default" type="submit">
+			        <i class="fa fa-search"></i>
+			      </button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		
+		<div class="all">
+		  <table class="table table-striped text-center">
+		    <thead>
+		      <tr>
+		        <th>Id</th>
+		        <th>Name</th>
+		        <th>Contact Number</th>      
+		      </tr>
+		    </thead>
+		    <tbody>
+		      {% verbatim %}
+		      <tr ng-repeat="contact in results | filter:data.message | orderBy: 'name'">
+		      	{{contact}}
+		        <td>{{contact.id}}</td>
+		        <td>{{contact.name}}</td>
+		        <td>{{contact.contact_number}}</td> 
+		      </tr>
+		      {% endverbatim %}
+		    </tbody>
+		  </table>
 		</div>
 	</div>
+</div>
+
 {% endblock %}

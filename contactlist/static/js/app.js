@@ -1,5 +1,5 @@
-// resister our app and restangular
-app = angular.module('angApp', ['restangular']);
+// defining our app and restangular
+var app = angular.module('angApp', ['restangular']);
 
 // Configuring the application for api connection
 app.config(function(RestangularProvider) {
@@ -28,4 +28,16 @@ app.config(function(RestangularProvider) {
       }
       return extractedData;
     });
+});
+// restrict for limitTo directive to four digit number on keypress
+app.directive("limitTo", function() {
+    return {
+        restrict: "A",
+        link: function(scope, elem, attrs) {
+            var limit = parseInt(attrs.limitTo);
+            angular.element(elem).on("keypress", function(e) {
+                if (this.value.length == limit) e.preventDefault();
+            });
+        }
+    }
 });
