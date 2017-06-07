@@ -1,0 +1,35 @@
+{% extends "contactlist/base.html" %}
+{% load static %}
+
+{% block title %}
+  Contact-list using django views
+{% endblock %}
+
+{% block content %}
+<div id="contactlist">
+	<div class="container">	
+		<h1 class="jumbotron text-center">Contact list view using jinja2 template view</h1>
+		<div class="all">
+		  <table class="table table-striped text-center">
+		    <thead>
+		      <tr>
+		        <th>Id</th>
+		        <th>Name</th>
+		        <th>Contact Number</th>      
+		      </tr>
+		    </thead>
+		    <tbody>
+		    {% for contact in contacts %}
+		      <tr>
+		        <td>{{contact.id}}</td>
+		        <td>{{contact.name}}</td>
+		        <td>{{contact.contact_number}}</td> 
+		      </tr>
+		      {% endfor %}
+		    </tbody>
+		  </table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

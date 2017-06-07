@@ -37,6 +37,9 @@ def api_root(request, format=None):
 
 
 # views for template
-def ContactView(request):
+def ApiView(request):
+    return render(request,'contactlist/contactlist.html')
+
+def JinjaView(request):
     contacts = Contact.objects.all()
-    return render(request,'contactlist/contactlist.html', {'contacts': contacts})
+    return render(request,'contactlist/jinja.html', {'contacts': contacts})
